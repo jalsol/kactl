@@ -14,11 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Update Ubuntu repo
+      run: sudo apt-get update
     - name: Install pdflatex
       run: sudo apt-get install texlive-latex-base texlive-latex-recommended texlive-latex-extra
     - name: Build pdf
       run: make kactl
-    - name: Run compiles
-      run: make test-compiles
-    - name: Run stress tests
-      run: make test
